@@ -11,6 +11,7 @@ on:
 jobs:
   test-build-deploy:
     runs-on: ubuntu-latest
+    environment: prod
     # env:
     #   SQLALCHEMY_DATABASE_URL: "postgresql://postgres:postgres@postgres/app"
     steps:
