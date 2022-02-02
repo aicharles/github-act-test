@@ -12,9 +12,8 @@ jobs:
   test-build-deploy:
     runs-on: ubuntu-latest
     environment: prod
-    # env:
-    #   BUCKET_NAME: "ma-kys-app"
-    #   SQLALCHEMY_DATABASE_URL: "postgresql://postgres:postgres@postgres/app"
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
     steps:
       - uses: actions/checkout@v2
       - name: Install python3
