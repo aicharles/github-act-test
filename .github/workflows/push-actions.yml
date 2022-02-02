@@ -11,6 +11,7 @@ on:
 jobs:
   test-build-deploy:
     runs-on: ubuntu-latest
+    environment: prod
     # env:
     #   BUCKET_NAME: "ma-kys-app"
     #   SQLALCHEMY_DATABASE_URL: "postgresql://postgres:postgres@postgres/app"
