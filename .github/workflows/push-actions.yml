@@ -1,0 +1,25 @@
+name: Push
+on:
+  push:
+    branches:
+      - 'dev'
+      - 'main'
+      - 'prod'
+      - 'uta'
+      - 'qa'
+
+jobs:
+  test-build-deploy:
+    runs-on: ubuntu-latest
+    # env:
+    #   BUCKET_NAME: "ma-kys-app"
+    #   SQLALCHEMY_DATABASE_URL: "postgresql://postgres:postgres@postgres/app"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install python3
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - name: install dependencies
+        run: |
+          python3.9 test.py
