@@ -22,4 +22,5 @@ jobs:
           python-version: "3.9"
       - name: install dependencies
         run: |
+          echo ${{ github.ref_name }}
           python3.9 test.py
