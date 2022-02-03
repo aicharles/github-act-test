@@ -23,4 +23,5 @@ jobs:
       - name: install dependencies
         run: |
           echo ${{ github.ref_name }}
+          echo ${{ github.base_ref }}
           python3.9 test.py
