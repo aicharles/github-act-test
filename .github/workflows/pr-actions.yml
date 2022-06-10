@@ -1,19 +1,17 @@
-name: PR
+name: PRs
 on:
   pull_request:
     branches:
       - 'dev'
+      - 'develop' 
       - 'main'
       - 'prod'
       - 'uta'
       - 'qa'
 
 jobs:
-  test-build-deploy:
+  check-pr:
     runs-on: ubuntu-latest
-    environment: ${{ github.ref_name }}
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
     steps:
       - uses: actions/checkout@v2
       - name: Install python3
@@ -22,6 +20,5 @@ jobs:
           python-version: "3.9"
       - name: install dependencies
         run: |
-          echo ${{ github.ref_name }}
-          echo ${{ github.base_ref }}
-          python3.9 test.py
+          pip install flake8
+          flake8
